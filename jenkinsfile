@@ -45,13 +45,13 @@ pipeline{
                 script{
                     if (params.Terraform_Action == 'plan'){
                        //sh "terraform plan -var-file=${params.Environment}.tfvars"
-                       sh "terraform plan -var-file=${params.Environment}.tfvars"
+                       sh "terraform plan"
                     } else if(params.Terraform_Action == 'apply'){
                       // sh "terraform apply -var-file=${params.Environmant}.tfvars -auto-approve"
-                       sh "terraform apply -var-file=${params.Environmant}.tfvars -auto-approve"
+                       sh "terraform apply"
                     } else if(params.Terraform_Action == 'destroy'){
                        //sh "terraform destroy -var-file=${params.Environment}.tfvars -auto-approve"
-                       sh "terraform destroy -var-file=${params.Environment}.tfvars -auto-approve"
+                       sh "terraform destroy"
                     }else{
                         error "Invalid value for Terraform action: ${params.Terraform_Action}"
                     }
